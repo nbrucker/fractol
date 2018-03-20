@@ -31,6 +31,14 @@ int		ft_input(int key, t_env *env)
 		env->type = key - 17;
 		ft_init_env(env);
 	}
+	else if (key == 124)
+		env->x = env->x + 0.005;
+	else if (key == 123)
+		env->x = env->x - 0.005;
+	else if (key == 126)
+		env->y = env->y - 0.005;
+	else if (key == 125)
+		env->y = env->y + 0.005;
 	ft_fractol(env);
 	return (0);
 }

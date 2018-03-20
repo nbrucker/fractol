@@ -30,5 +30,9 @@ int		ft_mouse_click(int key, int x, int y, t_env *env)
 	(void)key;
 	if (x < 0 || x >= WIDTH || y < 0 || y >= HEIGHT)
 		return (0);
+	env->zoom += 10;
+	env->x += 0;
+	env->y += 0;
+	ft_fractol(env);
 	return (0);
 }
