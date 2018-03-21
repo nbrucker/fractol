@@ -31,25 +31,30 @@ SRCS = main.c \
 		lib.c \
 		mouse.c
 
+MINILIBXDIR = minilibx/
+
 OBJS = $(addprefix $(OBJSDIR),$(SRCS:.c=.o))
 
 $(OBJSDIR)%.o: $(SRCSDIR)%.c
 	@mkdir -p $(OBJSDIR)
-	$(CC) $(CFLAGS) -I $(INCSDIR) -I $(LIBFTDIR)$(INCSDIR) -o $@ -c $<
+	$(CC) $(CFLAGS) -I $(INCSDIR) -I $(LIBFTDIR)$(INCSDIR) -I $(MINILIBXDIR) -o $@ -c $<
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
 	make -C $(LIBFTDIR)
-	$(CC) $(CFLAGS) -o $(NAME) $(OBJS) -L./libft -lft -lmlx -framework OpenGL -framework AppKit
+	make -C $(MINILIBXDIR)
+	$(CC) $(CFLAGS) -o $(NAME) $(OBJS) -L./libft -lft -L./minilibx -lmlx -framework OpenGL -framework AppKit
 
 clean:
 	rm -rf $(OBJSDIR)
 	make -C $(LIBFTDIR) clean
+	make -C $(MINILIBXDIR) clean
 
 fclean: clean
 	rm -rf $(NAME)
 	make -C $(LIBFTDIR) fclean
+	make -C $(MINILIBXDIR) fclean
 
 re: fclean all
 
