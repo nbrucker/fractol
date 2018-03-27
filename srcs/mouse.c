@@ -26,13 +26,29 @@ int		ft_mouse_move(int x, int y, t_env *env)
 
 int		ft_mouse_click(int key, int x, int y, t_env *env)
 {
-	(void)env;
-	(void)key;
+	double	scale_x;
+	double	scale_y;
+	double	factor_x;
+	double	factor_y;
+
 	if (x < 0 || x >= WIDTH || y < 0 || y >= HEIGHT)
 		return (0);
-	env->zoom += 10;
-	env->x += 0;
-	env->y += 0;
+	scale_x = (double)x / WIDTH;
+	scale_y = (double)y / HEIGHT;
+	factor_x = WIDTH * 0.1;
+	factor_y = HEIGHT * 0.1;
+	if (key == 1 || key == 4)
+	{
+		env->y += (1 / (env->zoom / factor_y)) * scale_y;
+		env->x += (1 / (env->zoom / factor_x)) * scale_x;
+		env->zoom *= 1.1;
+	}
+	else if (key == 2 || key == 5)
+	{
+		env->y -= (1 / (env->zoom / factor_y)) * scale_y;
+		env->x -= (1 / (env->zoom / factor_x)) * scale_x;
+		env->zoom /= 1.1;
+	}
 	ft_fractol(env);
 	return (0);
 }

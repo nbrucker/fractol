@@ -15,7 +15,6 @@
 
 # include <stdlib.h>
 # include <string.h>
-# include <stdio.h>
 
 # define WIDTH 800
 # define HEIGHT 600

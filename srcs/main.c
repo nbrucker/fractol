@@ -16,8 +16,6 @@
 
 int		ft_input(int key, t_env *env)
 {
-	ft_putnbr(key);
-	ft_putchar('\n');
 	if (key == 53)
 		exit(0);
 	else if (key >= 82 && key <= 86)
