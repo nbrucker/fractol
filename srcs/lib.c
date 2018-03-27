@@ -31,6 +31,13 @@ void	ft_fill_pixel(t_env *env, int x, int y, int color)
 	env->str[i + 2] = (color >> 16) & 0xFF;
 }
 
+double	ft_abs(double i)
+{
+	if (i < 0)
+		return (-i);
+	return (i);
+}
+
 int		ft_exit(t_env *env)
 {
 	(void)env;

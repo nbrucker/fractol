@@ -34,6 +34,7 @@ typedef struct	s_env
 	char		*str;
 	double		tmp;
 	int			color;
+	int			block;
 }				t_env;
 
 void			ft_fractol(t_env *env);
@@ -45,5 +46,6 @@ void			ft_init_env(t_env *env);
 int				ft_exit(t_env *env);
 int				ft_mouse_move(int x, int y, t_env *env);
 int				ft_mouse_click(int key, int x, int y, t_env *env);
+double			ft_abs(double i);
 
 #endif

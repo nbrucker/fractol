@@ -24,21 +24,36 @@ int		ft_input(int key, t_env *env)
 		env->max += 10;
 	else if (key == 78)
 		env->max -= 10;
-	else if (key >= 18 && key <= 19)
+	else if (key >= 18 && key <= 21)
 	{
 		env->type = key - 17;
 		ft_init_env(env);
 	}
 	else if (key == 124)
-		env->x = env->x + 0.005;
+		env->x += (1 / (env->zoom / 10));
 	else if (key == 123)
-		env->x = env->x - 0.005;
+		env->x -= (1 / (env->zoom / 10));
 	else if (key == 126)
-		env->y = env->y - 0.005;
+		env->y -= (1 / (env->zoom / 10));
 	else if (key == 125)
-		env->y = env->y + 0.005;
+		env->y += (1 / (env->zoom / 10));
+	else if (key == 35)
+		env->block = (env->block == 0) ? 1 : 0;
 	ft_fractol(env);
 	return (0);
+}
+
+void	ft_usage(void)
+{
+	ft_putendl("./fractol [name]");
+	ft_putstr("mandelbrot");
+	ft_putstr(" | ");
+	ft_putstr("julia");
+	ft_putstr(" | ");
+	ft_putstr("poulet");
+	ft_putstr(" | ");
+	ft_putstr("tricorn");
+	ft_error("");
 }
 
 void	ft_get_type(char *name, t_env *env)
@@ -47,8 +62,12 @@ void	ft_get_type(char *name, t_env *env)
 		env->type = 1;
 	else if (ft_strcmp(name, "julia") == 0)
 		env->type = 2;
+	else if (ft_strcmp(name, "poulet") == 0)
+		env->type = 3;
+	else if (ft_strcmp(name, "tricorn") == 0)
+		env->type = 4;
 	else
-		ft_error("./fractol [name]\nmandelbrot | julia");
+		ft_usage();
 }
 
 int		main(int argc, char **argv)
@@ -56,7 +75,7 @@ int		main(int argc, char **argv)
 	t_env	env;
 
 	if (argc != 2)
-		ft_error("./fractol [name]\nmandelbrot | julia");
+		ft_usage();
 	ft_get_type(argv[1], &env);
 	ft_init_mlx(&env);
 	ft_init_env(&env);

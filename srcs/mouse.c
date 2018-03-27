@@ -14,7 +14,7 @@
 
 int		ft_mouse_move(int x, int y, t_env *env)
 {
-	if (env->type != 2)
+	if (env->type != 2 || env->block == 1)
 		return (0);
 	if (x < 0 || x >= WIDTH || y < 0 || y >= HEIGHT)
 		return (0);

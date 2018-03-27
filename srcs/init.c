@@ -30,8 +30,27 @@ void	ft_init_mlx(t_env *env)
 		ft_error("MLX Error");
 }
 
+void	ft_init_env_next(t_env *env)
+{
+	if (env->type == 3)
+	{
+		env->x = -2.05;
+		env->y = -1.32;
+		env->zoom = 250;
+		env->max = 50;
+	}
+	else if (env->type == 4)
+	{
+		env->x = -2.3;
+		env->y = -1.55;
+		env->zoom = 200;
+		env->max = 50;
+	}
+}
+
 void	ft_init_env(t_env *env)
 {
+	env->block = 0;
 	env->color = 0;
 	if (env->type == 1)
 	{
@@ -49,4 +68,6 @@ void	ft_init_env(t_env *env)
 		env->c_r = 0.285;
 		env->c_i = 0.01;
 	}
+	else
+		ft_init_env_next(env);
 }
