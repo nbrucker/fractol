@@ -29,7 +29,8 @@ SRCS = main.c \
 		fractol.c \
 		init.c \
 		lib.c \
-		mouse.c
+		mouse.c \
+		fractol_next.c
 
 MINILIBXDIR = minilibx/
 

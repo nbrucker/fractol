@@ -30,13 +30,13 @@ int		ft_input(int key, t_env *env)
 		ft_init_env(env);
 	}
 	else if (key == 124)
-		env->x += (1 / (env->zoom / 10));
-	else if (key == 123)
 		env->x -= (1 / (env->zoom / 10));
+	else if (key == 123)
+		env->x += (1 / (env->zoom / 10));
 	else if (key == 126)
-		env->y -= (1 / (env->zoom / 10));
-	else if (key == 125)
 		env->y += (1 / (env->zoom / 10));
+	else if (key == 125)
+		env->y -= (1 / (env->zoom / 10));
 	else if (key == 35)
 		env->block = (env->block == 0) ? 1 : 0;
 	ft_fractol(env);
@@ -53,6 +53,8 @@ void	ft_usage(void)
 	ft_putstr("poulet");
 	ft_putstr(" | ");
 	ft_putstr("tricorn");
+	ft_putstr(" | ");
+	ft_putstr("burningship");
 	ft_error("");
 }
 
@@ -66,6 +68,8 @@ void	ft_get_type(char *name, t_env *env)
 		env->type = 3;
 	else if (ft_strcmp(name, "tricorn") == 0)
 		env->type = 4;
+	else if (ft_strcmp(name, "burningship") == 0)
+		env->type = 5;
 	else
 		ft_usage();
 }

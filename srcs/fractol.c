@@ -136,6 +136,8 @@ void	ft_fractol(t_env *env)
 				ft_poulet(x, y, env);
 			else if (env->type == 4)
 				ft_tricorn(x, y, env);
+			else if (env->type == 5)
+				ft_burningship(x, y, env);
 			y++;
 		}
 		x++;

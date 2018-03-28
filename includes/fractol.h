@@ -47,5 +47,6 @@ int				ft_exit(t_env *env);
 int				ft_mouse_move(int x, int y, t_env *env);
 int				ft_mouse_click(int key, int x, int y, t_env *env);
 double			ft_abs(double i);
+void			ft_burningship(int x, int y, t_env *env);
 
 #endif

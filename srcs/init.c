@@ -46,6 +46,13 @@ void	ft_init_env_next(t_env *env)
 		env->zoom = 200;
 		env->max = 50;
 	}
+	else if (env->type == 5)
+	{
+		env->x = -2;
+		env->y = -1.75;
+		env->zoom = 250;
+		env->max = 50;
+	}
 }
 
 void	ft_init_env(t_env *env)
