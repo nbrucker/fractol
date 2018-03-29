@@ -24,7 +24,7 @@ int		ft_input(int key, t_env *env)
 		env->max += 10;
 	else if (key == 78)
 		env->max -= 10;
-	else if (key >= 18 && key <= 21)
+	else if (key >= 18 && key <= 22)
 	{
 		env->type = key - 17;
 		ft_init_env(env);
